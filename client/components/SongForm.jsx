@@ -8,21 +8,19 @@ class SongForm extends React.Component {
       composer: '',
       tuning: '',
     }
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleComposerChange = this.handleComposerChange.bind(this);
-    this.handleTuningChange = this.handleTuningChange.bind(this);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
-  handleTitleChange(event) {
-    this.setState({title: event.target.value});
-  }
-  handleComposerChange(event) {
-    this.setState({composer: event.target.value});
-  }
-  handleTuningChange(event) {
-    this.setState({tuning: event.target.value});
+  handleInputChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+      [name]: value
+    })
   }
 
   handleSubmit(event) {
@@ -43,15 +41,27 @@ class SongForm extends React.Component {
       }}>
         <label>
           Title:
-          <input type="text" value={this.state.title} onChange={this.handleTitleChange} />
+          <input
+            name="title"
+            type="text"
+            value={this.state.title}
+            onChange={this.handleInputChange} />
         </label>
         <label>
           Composer:
-          <input type="text" value={this.state.composer} onChange={this.handleComposerChange} />
+          <input
+            name="composer"
+            type="text"
+            value={this.state.composer}
+            onChange={this.handleInputChange} />
         </label>
         <label>
           Tuning:
-          <input type="text" value={this.state.tuning} onChange={this.handleTuningChange} />
+          <input
+            name="tuning"
+            type="text"
+            value={this.state.tuning}
+            onChange={this.handleInputChange} />
         </label>
         <input type="submit" value="Add Song" />
       </form>
