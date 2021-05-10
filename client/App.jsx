@@ -16,7 +16,6 @@ class App extends React.Component {
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
   }
 
-  // this may or may not be working
   // eventually this sends a get request to the server and renders the page with the fetched setlist
   componentDidMount() {
 
