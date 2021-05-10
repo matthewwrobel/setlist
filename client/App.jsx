@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div>
         <h2> Matt's Setlist </h2>
-        <SongForm props={this.handleSongFormSubmit}/>
+        <SongForm handleSongFormSubmit={this.handleSongFormSubmit}/>
       </div>
     );
   }

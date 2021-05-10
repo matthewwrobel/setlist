@@ -37,7 +37,10 @@ class SongForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={(e) => {
+        this.handleSubmit(e);
+        this.props.handleSongFormSubmit(this.state);
+      }}>
         <label>
           Title:
           <input type="text" value={this.state.title} onChange={this.handleTitleChange} />
