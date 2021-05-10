@@ -3,13 +3,14 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 
 import SongForm from './components/SongForm.jsx';
+import Setlist from './components/Setlist.jsx';
 import sampleSetlist from '../sampleSetlist.js';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      setlist: []
+      setlist: sampleSetlist
     }
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
@@ -18,9 +19,7 @@ class App extends React.Component {
   // this may or may not be working
   // eventually this sends a get request to the server and renders the page with the fetched setlist
   componentDidMount() {
-    this.setState({
-      setlist: sampleSetlist
-    });
+
   }
 
   // handleSongFormSubmit function gets passed to SongForm as props
@@ -42,6 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <h2> Matt's Setlist </h2>
+        <Setlist setlist={this.state.setlist}/>
         <SongForm handleSongFormSubmit={this.handleSongFormSubmit}/>
       </div>
     );
