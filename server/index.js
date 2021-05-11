@@ -4,6 +4,7 @@ const { saveSong, getTensionSortedSetlist } = require(path.join(__dirname, '..',
 const port = 5150;
 const app = express();
 
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());
 
 app.post('/songs', (req, res) => {
