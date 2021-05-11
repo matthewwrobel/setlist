@@ -6,12 +6,6 @@ const sampleSetlist = [
     tension: 137.97
   },
   {
-    title: "Purple Haze",
-    composer: "Jimi Hendrix",
-    tuning: "standard",
-    tension: 150
-  },
-  {
     title: "Asher",
     composer: "Matt Wrobel",
     tuning: "open C",
@@ -22,6 +16,12 @@ const sampleSetlist = [
     composer: "Jimmy Page",
     tuning: "drop D",
     tension: 169.14
+  },
+  {
+    title: "Purple Haze",
+    composer: "Jimi Hendrix",
+    tuning: "standard",
+    tension: 174.54
   }
 ];
 

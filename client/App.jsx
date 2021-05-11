@@ -10,31 +10,47 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      setlist: sampleSetlist
+      setlist: []
     }
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
   }
 
-  // eventually this sends a get request to the server and renders the page with the fetched setlist
   componentDidMount() {
-
+    this.getSetlist();
   }
 
-  // handleSongFormSubmit function gets passed to SongForm as props
   handleSongFormSubmit(song) {
-    console.log('song submitted', song);
-    // takes a song obj as a param
-    // makes an ajax post request, sending that song to the server and database...
-    // on success
-      // get request is made and page is updated
+
+    $.ajax({
+      method: 'POST',
+      url: 'http://localhost:5150/songs',
+      contentType: 'application/json',
+      data: JSON.stringify(song),
+      processData: false,
+      success: (data) => {
+        this.getSetlist();
+      },
+      error: (err) => {
+        console.log('POST request failed: ', err);
+      }
+    });
   }
 
-  // getSetlist
-    // makes a get request to the server
-    // on success
-      // sets the state of the app, triggering a page re-render
-
+  getSetlist() {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:5150/songs',
+      success: (data) => {
+        this.setState({
+          setlist: data
+        });
+      },
+      err: (err) => {
+        console.log('GET request failed: ', err);
+      }
+    });
+  }
 
   render() {
     return (

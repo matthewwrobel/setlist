@@ -11,10 +11,7 @@ app.use(express.json());
 app.post('/songs', (req, res) => {
 
   let song = req.body;
-  console.log('song without tension property: ', song);
   addTensionProperty(song);
-  console.log('song with tension property added: ', song);
-  // function call to add tension property to song
   saveSong(song)
     .then((data) => {
       res.status(201).send(data);

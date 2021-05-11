@@ -12,8 +12,8 @@ const Setlist = (props) => (
       </tr>
     </thead>
     <tbody>
-      {props.setlist.map((song, index) => (
-          <Song key={index} title={song.title} composer={song.composer} tuning={song.tuning} tension={song.tension}/>
+      {props.setlist.map((song) => (
+          <Song key={song._id} title={song.title} composer={song.composer} tuning={song.tuning} tension={song.tension}/>
         )
       )}
     </tbody>

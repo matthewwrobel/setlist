@@ -25,7 +25,6 @@ class SongForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
     this.setState({
       title: '',
       composer: '',

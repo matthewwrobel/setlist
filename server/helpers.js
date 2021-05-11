@@ -6,7 +6,6 @@ const tuningTension = {
   'open D': 155.08,
   'open Dm': 151.86,
   'E flat': 155.48
-
 }
 
 const addTensionProperty = (song) => {
