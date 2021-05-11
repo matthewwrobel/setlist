@@ -6,7 +6,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('connected to mongoDB!'));
 
 // SCHEMA
-// _id is created by default
 const songSchema = new mongoose.Schema({
   title: String,
   composer: String,
@@ -17,7 +16,6 @@ const songSchema = new mongoose.Schema({
 // MODEL
 const Song = mongoose.model('Song', songSchema);
 
-// add a function to save a new song to the db
 const saveSong = (song) => {
   return new Promise ((resolve, reject) => {
     Song(song).save((err, data) => {
@@ -30,11 +28,14 @@ const saveSong = (song) => {
   });
 };
 
-// add a function to get all songs from the db, organzied by string tension
 const getTensionSortedSetlist = () => {
   // returns a promise
   return Song.find().sort('tension').exec();
 }
+
+module.exports.saveSong = saveSong;
+module.exports.getTensionSortedSetlist = getTensionSortedSetlist;
+
 
 
 // TESTS
