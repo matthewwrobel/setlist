@@ -31,8 +31,19 @@ const saveSong = (song) => {
 };
 
 // add a function to get all songs from the db, organzied by string tension
+const getTensionSortedSetlist = () => {
+  // returns a promise
+  return Song.find().sort('tension').exec();
+}
+
 
 // TESTS
+
+// getTensionSortedSetlist().then((data) => {
+//   console.log(data);
+// }).catch((err) => {
+//   console.log(err);
+// });
 
 // const leavesAndBranches = Song({
 //   title: "Leaves and Branches",
@@ -51,9 +62,37 @@ const saveSong = (song) => {
 //   }
 // });
 
-saveSong({
-  title: "Leaves and Branches",
-  composer: "Matt Wrobel",
-  tuning: "open D lydian",
-  tension: 137.97
-}).then((data) => {console.log(data)});
+// saveSong({
+//   title: "Leaves and Branches",
+//   composer: "Matt Wrobel",
+//   tuning: "open D lydian",
+//   tension: 137.97
+// }).then((data) => {console.log(data)});
+
+// Song.insertMany([
+//   {
+//     title: "Asher",
+//     composer: "Matt Wrobel",
+//     tuning: "open C",
+//     tension: 154.55
+//   },
+//   {
+//     title: "Going to California",
+//     composer: "Jimmy Page",
+//     tuning: "drop D",
+//     tension: 169.14
+//   },
+//   {
+//     title: "Leaves and Branches",
+//     composer: "Matt Wrobel",
+//     tuning: "open D lydian",
+//     tension: 137.97
+//   }
+
+// ], (err, data) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(data);
+//   }
+// });
