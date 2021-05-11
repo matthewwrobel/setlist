@@ -8,7 +8,7 @@ const Setlist = (props) => (
         <th>Title</th>
         <th>Composer</th>
         <th>Tuning</th>
-        <th>Tension</th>
+        <th>Tension(lbs)</th>
       </tr>
     </thead>
     <tbody>

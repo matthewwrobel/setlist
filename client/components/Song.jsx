@@ -7,7 +7,6 @@ const Song = (props) => (
     <td>{props.tuning}</td>
     <td>{props.tension}</td>
   </tr>
-
 );
 
 export default Song;
