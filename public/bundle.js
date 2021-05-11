@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar sampleSetlist = [{\n  title: \"Leaves and Branches\",\n  composer: \"Matt Wrobel\",\n  tuning: \"open D lydian\",\n  tension: 137.97\n}, {\n  title: \"Asher\",\n  composer: \"Matt Wrobel\",\n  tuning: \"open C\",\n  tension: 154.55\n}, {\n  title: \"Going to California\",\n  composer: \"Jimmy Page\",\n  tuning: \"drop D\",\n  tension: 169.14\n}];\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sampleSetlist);\n\n//# sourceURL=webpack://setlist/./sampleSetlist.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar sampleSetlist = [{\n  title: \"Leaves and Branches\",\n  composer: \"Matt Wrobel\",\n  tuning: \"open D lydian\",\n  tension: 137.97\n}, {\n  title: \"Purple Haze\",\n  composer: \"Jimi Hendrix\",\n  tuning: \"standard\",\n  tension: 150\n}, {\n  title: \"Asher\",\n  composer: \"Matt Wrobel\",\n  tuning: \"open C\",\n  tension: 154.55\n}, {\n  title: \"Going to California\",\n  composer: \"Jimmy Page\",\n  tuning: \"drop D\",\n  tension: 169.14\n}];\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sampleSetlist);\n\n//# sourceURL=webpack://setlist/./sampleSetlist.js?");
 
 /***/ }),
 
