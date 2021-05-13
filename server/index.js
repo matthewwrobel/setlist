@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { saveSong, getTuning, getTensionSortedSetlist } = require(path.join(__dirname, '..', 'database'));
+const { saveSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
 const { addTensionProperty } = require(path.join(__dirname, 'helpers.js'));
 const port = 5150;
 const app = express();
@@ -40,9 +40,33 @@ app.get('/songs', (req, res) => {
 
 });
 
-// add post route for tunings
+app.post('/tunings', (req, res) => {
 
-// add get route for tunings
+  let tuning = req.body;
+
+  saveTuning(tuning)
+    .then((result) => {
+      res.status(201).send('tuning added to database');
+    })
+    .catch((err) => {
+      res.status(500).send('error saving tuning to database');
+    });
+
+});
+
+app.get('/tunings', (req, res) => {
+
+  getTuningList()
+    .then((tunings) => {
+      res.status(200).send(tunings);
+    })
+    .catch((err) => {
+      res.status(500).send('error getting tunings');
+    })
+
+});
+
+// add post route for tunings
 
 app.listen(port, () => {
   console.log(`server is listening at http://localhost:${port}!`)

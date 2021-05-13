@@ -58,6 +58,7 @@ class SongForm extends React.Component {
         <label>
           Tuning:
           <select value={this.state.tuning} name={"tuning"} onChange={this.handleInputChange}>
+            <option> select a tuning </option>
             {this.props.tunings.map((tuning, index) => <Tuning key={index} tuning={tuning} />)}
           </select>
         </label>

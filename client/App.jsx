@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import $ from 'jquery';
 
 import SongForm from './components/SongForm.jsx';
+import TuningForm from './components/TuningForm.jsx';
 import Setlist from './components/Setlist.jsx';
 import sampleSetlist from '../sampleSetlist.js';
 import sampleTunings from '../sampleTunings.js'
@@ -12,14 +13,16 @@ class App extends React.Component {
     super();
     this.state = {
       setlist: [],
-      tunings: sampleTunings
+      tunings: []
     }
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
+    this.handleTuningFormSubmit = this.handleTuningFormSubmit.bind(this);
   }
 
   componentDidMount() {
     this.getSetlist();
+    this.getTunings();
   }
 
   handleSongFormSubmit(song) {
@@ -39,6 +42,25 @@ class App extends React.Component {
     });
   }
 
+  handleTuningFormSubmit(tuning) {
+    console.log('tuning submitted: ', tuning);
+
+    $.ajax({
+      method: 'POST',
+      url: 'http://localhost:5150/tunings',
+      contentType: 'application/json',
+      data: JSON.stringify(tuning),
+      processData: false,
+      success: (data) => {
+        this.getTunings();
+      },
+      error: (err) => {
+        console.log('POST request failed: ', err);
+      }
+    });
+
+  }
+
   getSetlist() {
     $.ajax({
       method: 'GET',
@@ -54,12 +76,31 @@ class App extends React.Component {
     });
   }
 
+  getTunings() {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:5150/tunings',
+      success: (data) => {
+        this.setState({
+          tunings: data
+        });
+      },
+      err: (err) => {
+        console.log('GET request failed: ', err);
+      }
+    });
+
+  }
+
   render() {
     return (
       <div>
         <h2> Matt's Setlist </h2>
         <Setlist setlist={this.state.setlist}/>
+        <h4> Add New Song </h4>
         <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings.map((tuning) => tuning.tuning)}/>
+        <h4> Add New Tuning </h4>
+        <TuningForm handleTuningFormSubmit={this.handleTuningFormSubmit}/>
       </div>
     );
   }

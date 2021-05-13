@@ -49,13 +49,21 @@ const getTensionSortedSetlist = () => {
   return Song.find().sort('tension').exec();
 };
 
+const getTuningList = () => {
+  return Tuning.find().exec();
+}
+
 module.exports.saveSong = saveSong;
-module.exports.getTuning = getTuning;
 module.exports.getTensionSortedSetlist = getTensionSortedSetlist;
+module.exports.getTuning = getTuning;
+module.exports.getTuningList = getTuningList;
+module.exports.saveTuning = saveTuning;
 
 
 
 // TESTS
+
+// getTuningList().then((list) => console.log(list));
 
 // Tuning.insertMany([{
 //   tuning: 'open D Lydian',
