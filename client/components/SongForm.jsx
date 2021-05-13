@@ -18,7 +18,6 @@ class SongForm extends React.Component {
   handleInputChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-
     this.setState({
       [name]: value
     })
@@ -26,24 +25,21 @@ class SongForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.tuning === '') {
-      alert('Please Select a Tuning');
-    } else {
+    // if (this.state.tuning === '') {
+    //   alert('Please Select a Tuning');
+    // } else {
       this.props.handleSongFormSubmit(this.state);
       this.setState({
         title: '',
         composer: '',
         tuning: ''
       });
-    }
+    // }
   }
 
   render() {
     return (
-      <form onSubmit={(e) => {
-        this.handleSubmit(e);
-        // this.props.handleSongFormSubmit(this.state);
-      }}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           Title:
           <input

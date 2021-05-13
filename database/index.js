@@ -23,15 +23,18 @@ const Song = mongoose.model('Song', songSchema);
 const Tuning = mongoose.model('Tuning', tuningSchema);
 
 const saveSong = (song) => {
-  return new Promise ((resolve, reject) => {
-    Song(song).save((err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
-  });
+
+  return Song(song).save();
+
+  // return new Promise ((resolve, reject) => {
+  //   Song(song).save((err, data) => {
+  //     if (err) {
+  //       reject(err);
+  //     } else {
+  //       resolve(data);
+  //     }
+  //   });
+  // });
 };
 
 const saveTuning = (tuning) => {

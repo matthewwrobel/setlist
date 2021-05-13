@@ -5,7 +5,7 @@ class TuningForm extends React.Component {
     super();
     this.state = {
       tuning: '',
-      tension: 0
+      tension: ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -15,7 +15,6 @@ class TuningForm extends React.Component {
   handleInputChange (event) {
     const name = event.target.name;
     const value = event.target.value;
-
     this.setState({
       [name]: value
     })
@@ -26,17 +25,14 @@ class TuningForm extends React.Component {
     this.props.handleTuningFormSubmit(this.state);
     this.setState({
       tuning: '',
-      tension: 0
+      tension: ''
     });
   }
 
   render() {
 
     return (
-      <form onSubmit={(e) => {
-        this.handleSubmit(e);
-        // this.props.handleTuningFormSubmit(this.state);
-      }}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <label>
           Tuning
           <input
