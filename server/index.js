@@ -17,7 +17,7 @@ app.post('/songs', (req, res) => {
       song.tension = tuning.tension;
     })
     .then(() => {
-      return saveSong(song)
+      return saveSong(song);
     })
     .then((data) => {
       res.status(201).send(data);

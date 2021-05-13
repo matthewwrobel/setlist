@@ -20,7 +20,6 @@ const tuningSchema = new mongoose.Schema({
 
 // MODELS
 const Song = mongoose.model('Song', songSchema);
-
 const Tuning = mongoose.model('Tuning', tuningSchema);
 
 const saveSong = (song) => {

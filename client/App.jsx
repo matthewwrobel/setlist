@@ -5,12 +5,14 @@ import $ from 'jquery';
 import SongForm from './components/SongForm.jsx';
 import Setlist from './components/Setlist.jsx';
 import sampleSetlist from '../sampleSetlist.js';
+import sampleTunings from '../sampleTunings.js'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      setlist: []
+      setlist: [],
+      tunings: sampleTunings
     }
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
@@ -57,7 +59,7 @@ class App extends React.Component {
       <div>
         <h2> Matt's Setlist </h2>
         <Setlist setlist={this.state.setlist}/>
-        <SongForm handleSongFormSubmit={this.handleSongFormSubmit}/>
+        <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings}/>
       </div>
     );
   }
