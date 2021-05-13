@@ -59,7 +59,7 @@ class App extends React.Component {
       <div>
         <h2> Matt's Setlist </h2>
         <Setlist setlist={this.state.setlist}/>
-        <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings}/>
+        <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings.map((tuning) => tuning.tuning)}/>
       </div>
     );
   }

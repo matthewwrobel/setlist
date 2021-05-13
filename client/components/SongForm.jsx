@@ -1,4 +1,5 @@
 import React from 'react';
+import Tuning from './Tuning.jsx';
 
 class SongForm extends React.Component {
   constructor(props) {
@@ -56,11 +57,9 @@ class SongForm extends React.Component {
         </label>
         <label>
           Tuning:
-          <input
-            name="tuning"
-            type="text"
-            value={this.state.tuning}
-            onChange={this.handleInputChange} />
+          <select value={this.state.tuning} name={"tuning"} onChange={this.handleInputChange}>
+            {this.props.tunings.map((tuning, index) => <Tuning key={index} tuning={tuning} />)}
+          </select>
         </label>
         <input type="submit" value="Add Song" />
       </form>

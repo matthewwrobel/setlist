@@ -26,3 +26,5 @@ const sampleTunings = [{
     tuning: 'E flat',
     tension: 155.48
   }];
+
+  export default sampleTunings
