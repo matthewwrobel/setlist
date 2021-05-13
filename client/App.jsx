@@ -43,7 +43,6 @@ class App extends React.Component {
   }
 
   handleTuningFormSubmit(tuning) {
-    console.log('tuning submitted: ', tuning);
 
     $.ajax({
       method: 'POST',

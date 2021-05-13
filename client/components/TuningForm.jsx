@@ -23,6 +23,7 @@ class TuningForm extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault();
+    this.props.handleTuningFormSubmit(this.state);
     this.setState({
       tuning: '',
       tension: 0
@@ -34,7 +35,7 @@ class TuningForm extends React.Component {
     return (
       <form onSubmit={(e) => {
         this.handleSubmit(e);
-        this.props.handleTuningFormSubmit(this.state);
+        // this.props.handleTuningFormSubmit(this.state);
       }}>
         <label>
           Tuning
@@ -54,7 +55,7 @@ class TuningForm extends React.Component {
             onChange={this.handleInputChange}
           />
         </label>
-        <input type={'submit'} value={'Add Song'}/>
+        <input type={'submit'} value={'Add Tuning'}/>
       </form>
 
     )

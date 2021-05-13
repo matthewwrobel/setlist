@@ -26,18 +26,23 @@ class SongForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({
-      title: '',
-      composer: '',
-      tuning: ''
-    });
+    if (this.state.tuning === '') {
+      alert('Please Select a Tuning');
+    } else {
+      this.props.handleSongFormSubmit(this.state);
+      this.setState({
+        title: '',
+        composer: '',
+        tuning: ''
+      });
+    }
   }
 
   render() {
     return (
       <form onSubmit={(e) => {
         this.handleSubmit(e);
-        this.props.handleSongFormSubmit(this.state);
+        // this.props.handleSongFormSubmit(this.state);
       }}>
         <label>
           Title:
