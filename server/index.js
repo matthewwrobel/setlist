@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { saveSong, deleteSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
+const { saveSong, deleteSong, updateSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
 const { addTensionProperty } = require(path.join(__dirname, 'helpers.js'));
 const port = 5150;
 const app = express();
@@ -40,7 +40,30 @@ app.get('/songs', (req, res) => {
 
 });
 
+app.put('/songs', (req, res) => {
+
+  let updatedSong = req.body;
+
+  getTuning(updatedSong.tuning)
+    .then((tuning) => {
+      updatedSong.tension = tuning.tension;
+    })
+    .then(() => {
+      let id = updatedSong._id;
+      delete updatedSong._id;
+      return updateSong({_id: id}, updatedSong);
+    })
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+
+});
+
 app.delete('/songs', (req, res) => {
+
   let song = req.body;
 
   deleteSong(song)
@@ -78,8 +101,6 @@ app.get('/tunings', (req, res) => {
     })
 
 });
-
-// add post route for tunings
 
 app.listen(port, () => {
   console.log(`server is listening at http://localhost:${port}!`)

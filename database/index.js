@@ -30,6 +30,10 @@ const deleteSong = (id) => {
   return Song.deleteOne(id);
 }
 
+const updateSong = (id, newInfo) => {
+  return Song.updateOne(id, newInfo);
+}
+
 const saveTuning = (tuning) => {
   return Tuning(tuning).save();
 };
@@ -52,10 +56,13 @@ module.exports.getTensionSortedSetlist = getTensionSortedSetlist;
 module.exports.getTuning = getTuning;
 module.exports.getTuningList = getTuningList;
 module.exports.saveTuning = saveTuning;
+module.exports.updateSong = updateSong;
 
 
 
 // TESTS
+
+// updateSong({_id: '609ec4e45f534c812c16252e'}, {title: "new title"}).then((result) => {console.log(result)});
 
 // deleteSong({_id: '609ea9db80e6687c4f47a494'})
 //   .then((result) => console.log(result));

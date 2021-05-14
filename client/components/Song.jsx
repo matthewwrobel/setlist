@@ -8,9 +8,11 @@ const Song = (props) => (
     <td>{props.tension}</td>
     <td>
       <button onClick={(e) => {
-        console.log(e.target.parentElement.parentElement.id);
         props.deleteSong(e.target.parentElement.parentElement.id);
       }}> remove song </button>
+    </td>
+    <td>
+      <button onClick={(e) => {}}> edit song </button>
     </td>
   </tr>
 );

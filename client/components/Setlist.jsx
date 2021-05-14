@@ -9,7 +9,8 @@ const Setlist = (props) => (
         <th>Composer</th>
         <th>Tuning</th>
         <th>Tension(lbs)</th>
-        <th></th>
+        <th className="remove-btn"></th>
+        <th className="edit-btn"></th>
       </tr>
     </thead>
     <tbody>
