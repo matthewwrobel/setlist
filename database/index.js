@@ -10,7 +10,8 @@ const songSchema = new mongoose.Schema({
   title: String,
   composer: String,
   tuning: String,
-  tension: Number
+  tension: Number,
+  url: String
 });
 
 const tuningSchema = new mongoose.Schema({

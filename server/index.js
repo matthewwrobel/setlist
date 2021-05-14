@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const { saveSong, deleteSong, updateSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
 const { addTensionProperty } = require(path.join(__dirname, 'helpers.js'));
+const { getSpotifyLink } = require(path.join(__dirname, 'spotify.js'));
 const port = 5150;
 const app = express();
 
@@ -12,7 +13,19 @@ app.post('/songs', (req, res) => {
 
   let song = req.body;
 
-  getTuning(song.tuning)
+  getSpotifyLink(song.title)
+    .then((result) => {
+      let url = result.data.tracks.items[0].external_urls.spotify;
+      console.log('url: ', url);
+      song.url = url;
+      console.log(song);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .then(() => {
+      return getTuning(song.tuning)
+    })
     .then((tuning) => {
       song.tension = tuning.tension;
     })
