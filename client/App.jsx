@@ -112,7 +112,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2> Matt's Setlist </h2>
+        <h2> Setlist </h2>
         <Setlist deleteSong={this.deleteSong} setlist={this.state.setlist}/>
         <h4> Add New Song </h4>
         <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings.map((tuning) => tuning.tuning)}/>

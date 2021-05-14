@@ -22,6 +22,7 @@ const Setlist = (props) => (
             composer={song.composer}
             tuning={song.tuning}
             tension={song.tension}
+            url={song.url}
             deleteSong={props.deleteSong}
           />
         )
