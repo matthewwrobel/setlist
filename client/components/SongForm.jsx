@@ -39,7 +39,7 @@ class SongForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Title:
           <input

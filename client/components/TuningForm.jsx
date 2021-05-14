@@ -32,7 +32,7 @@ class TuningForm extends React.Component {
   render() {
 
     return (
-      <form onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Tuning
           <input

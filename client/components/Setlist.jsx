@@ -9,11 +9,12 @@ const Setlist = (props) => (
         <th>Composer</th>
         <th>Tuning</th>
         <th>Tension(lbs)</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       {props.setlist.map((song) => (
-          <Song key={song._id} title={song.title} composer={song.composer} tuning={song.tuning} tension={song.tension}/>
+          <Song id={song._id} key={song._id} title={song.title} composer={song.composer} tuning={song.tuning} tension={song.tension}/>
         )
       )}
     </tbody>
