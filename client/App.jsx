@@ -18,6 +18,7 @@ class App extends React.Component {
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
     this.handleTuningFormSubmit = this.handleTuningFormSubmit.bind(this);
+    this.deleteSong = this.deleteSong.bind(this);
   }
 
   componentDidMount() {
@@ -91,11 +92,28 @@ class App extends React.Component {
 
   }
 
+  deleteSong(id) {
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:5150/songs',
+      contentType: 'application/json',
+      data: JSON.stringify({_id: id}),
+      processData: false,
+    })
+    .then(() => {
+      this.getSetlist();
+    })
+    .catch((err) => {
+      console.log('error deleting song', err);
+    });
+
+  }
+
   render() {
     return (
       <div>
         <h2> Matt's Setlist </h2>
-        <Setlist setlist={this.state.setlist}/>
+        <Setlist deleteSong={this.deleteSong} setlist={this.state.setlist}/>
         <h4> Add New Song </h4>
         <SongForm handleSongFormSubmit={this.handleSongFormSubmit} tunings={this.state.tunings.map((tuning) => tuning.tuning)}/>
         <h4> Add New Tuning </h4>

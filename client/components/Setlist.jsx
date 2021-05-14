@@ -14,7 +14,15 @@ const Setlist = (props) => (
     </thead>
     <tbody>
       {props.setlist.map((song) => (
-          <Song id={song._id} key={song._id} title={song.title} composer={song.composer} tuning={song.tuning} tension={song.tension}/>
+          <Song
+            id={song._id}
+            key={song._id}
+            title={song.title}
+            composer={song.composer}
+            tuning={song.tuning}
+            tension={song.tension}
+            deleteSong={props.deleteSong}
+          />
         )
       )}
     </tbody>

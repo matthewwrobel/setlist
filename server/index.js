@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { saveSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
+const { saveSong, deleteSong, saveTuning, getTuning, getTensionSortedSetlist, getTuningList } = require(path.join(__dirname, '..', 'database'));
 const { addTensionProperty } = require(path.join(__dirname, 'helpers.js'));
 const port = 5150;
 const app = express();
@@ -36,6 +36,19 @@ app.get('/songs', (req, res) => {
     })
     .catch((err) => {
       res.status(500).send('error getting setlist');
+    })
+
+});
+
+app.delete('/songs', (req, res) => {
+  let song = req.body;
+
+  deleteSong(song)
+    .then((result) => {
+      res.status(200).send('song removed from setlist');
+    })
+    .catch((err) => {
+      res.status(500).send('error removing song from database');
     })
 
 });

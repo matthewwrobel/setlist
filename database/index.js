@@ -23,32 +23,22 @@ const Song = mongoose.model('Song', songSchema);
 const Tuning = mongoose.model('Tuning', tuningSchema);
 
 const saveSong = (song) => {
-
   return Song(song).save();
-
-  // return new Promise ((resolve, reject) => {
-  //   Song(song).save((err, data) => {
-  //     if (err) {
-  //       reject(err);
-  //     } else {
-  //       resolve(data);
-  //     }
-  //   });
-  // });
 };
 
+const deleteSong = (id) => {
+  return Song.deleteOne(id);
+}
+
 const saveTuning = (tuning) => {
-  // returns a promise
   return Tuning(tuning).save();
 };
 
 const getTuning = (tuning) => {
-  // query the tuning document and find the tension value for the document with the matching tuning value
   return Tuning.findOne({tuning: tuning}).exec();
 };
 
 const getTensionSortedSetlist = () => {
-  // returns a promise
   return Song.find().sort('tension').exec();
 };
 
@@ -57,6 +47,7 @@ const getTuningList = () => {
 }
 
 module.exports.saveSong = saveSong;
+module.exports.deleteSong = deleteSong;
 module.exports.getTensionSortedSetlist = getTensionSortedSetlist;
 module.exports.getTuning = getTuning;
 module.exports.getTuningList = getTuningList;
@@ -65,6 +56,9 @@ module.exports.saveTuning = saveTuning;
 
 
 // TESTS
+
+// deleteSong({_id: '609ea9db80e6687c4f47a494'})
+//   .then((result) => console.log(result));
 
 // getTuningList().then((list) => console.log(list));
 

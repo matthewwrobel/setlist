@@ -6,8 +6,11 @@ const Song = (props) => (
     <td>{props.composer}</td>
     <td>{props.tuning}</td>
     <td>{props.tension}</td>
-    <td >
-      <button onClick={e => console.log(e.target.parentElement.parentElement.id)}> delete song</button>
+    <td>
+      <button onClick={(e) => {
+        console.log(e.target.parentElement.parentElement.id);
+        props.deleteSong(e.target.parentElement.parentElement.id);
+      }}> remove song </button>
     </td>
   </tr>
 );
