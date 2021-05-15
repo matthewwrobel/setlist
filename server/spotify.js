@@ -11,7 +11,7 @@ const getSpotifyLink = (song, artist) => {
       Authorization: `Bearer ${SPOTIFY_TOKEN}`
     },
     params: {
-      q: song,
+      q: `track:${song} artist:${artist}`,
       type: 'track',
       market: 'US',
       limit: 1

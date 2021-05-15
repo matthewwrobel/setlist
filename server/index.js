@@ -13,7 +13,7 @@ app.post('/songs', (req, res) => {
 
   let song = req.body;
 
-  getSpotifyLink(song.title)
+  getSpotifyLink(song.title, song.composer)
     .then((result) => {
       let url = result.data.tracks.items[0].external_urls.spotify;
       // console.log('url: ', url);
@@ -85,7 +85,7 @@ app.delete('/songs', (req, res) => {
     })
     .catch((err) => {
       res.status(500).send('error removing song from database');
-    })
+    });
 
 });
 
