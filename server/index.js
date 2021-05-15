@@ -16,9 +16,7 @@ app.post('/songs', (req, res) => {
   getSpotifyLink(song.title, song.composer)
     .then((result) => {
       let url = result.data.tracks.items[0].external_urls.spotify;
-      // console.log('url: ', url);
       song.url = url;
-      // console.log(song);
     })
     .catch((err) => {
       console.log(err);
