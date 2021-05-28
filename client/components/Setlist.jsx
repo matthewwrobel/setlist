@@ -1,5 +1,5 @@
 import React from 'react';
-import Song from './Song.jsx'
+import Song from './Song.jsx';
 
 const Setlist = (props) => (
   <table>
@@ -15,20 +15,20 @@ const Setlist = (props) => (
     </thead>
     <tbody>
       {props.setlist.map((song) => (
-          <Song
-            id={song._id}
-            key={song._id}
-            title={song.title}
-            composer={song.composer}
-            tuning={song.tuning}
-            tension={song.tension}
-            url={song.url}
-            deleteSong={props.deleteSong}
-          />
-        )
+        <Song
+          id={song._id}
+          key={song._id}
+          title={song.title}
+          composer={song.composer}
+          tuning={song.tuning}
+          tension={song.tension}
+          url={song.url}
+          deleteSong={props.deleteSong}
+        />
+      )
       )}
     </tbody>
   </table>
 );
 
-export default Setlist
+export default Setlist;
