@@ -23,7 +23,7 @@ app.post('/songs', (req, res) => {
       console.log(err);
     })
     .then(() => {
-      return getTuning(song.tuning)
+      return getTuning(song.tuning);
     })
     .then((tuning) => {
       song.tension = tuning.tension;
@@ -48,7 +48,7 @@ app.get('/songs', (req, res) => {
     })
     .catch((err) => {
       res.status(500).send('error getting setlist');
-    })
+    });
 
 });
 
@@ -110,10 +110,10 @@ app.get('/tunings', (req, res) => {
     })
     .catch((err) => {
       res.status(500).send('error getting tunings');
-    })
+    });
 
 });
 
 app.listen(port, () => {
-  console.log(`server is listening at http://localhost:${port}!`)
+  console.log(`server is listening at http://localhost:${port}!`);
 });
