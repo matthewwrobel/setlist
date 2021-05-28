@@ -6,7 +6,7 @@ import SongForm from './components/SongForm.jsx';
 import TuningForm from './components/TuningForm.jsx';
 import Setlist from './components/Setlist.jsx';
 import sampleSetlist from '../sampleSetlist.js';
-import sampleTunings from '../sampleTunings.js'
+import sampleTunings from '../sampleTunings.js';
 
 class App extends React.Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends React.Component {
     this.state = {
       setlist: [],
       tunings: []
-    }
+    };
 
     this.handleSongFormSubmit = this.handleSongFormSubmit.bind(this);
     this.handleTuningFormSubmit = this.handleTuningFormSubmit.bind(this);
@@ -100,12 +100,12 @@ class App extends React.Component {
       data: JSON.stringify({_id: id}),
       processData: false,
     })
-    .then(() => {
-      this.getSetlist();
-    })
-    .catch((err) => {
-      console.log('error deleting song', err);
-    });
+      .then(() => {
+        this.getSetlist();
+      })
+      .catch((err) => {
+        console.log('error deleting song', err);
+      });
 
   }
 
